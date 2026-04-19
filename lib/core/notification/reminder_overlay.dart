@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:window_manager/window_manager.dart';
+import '../../app.dart';
 import '../../features/todo/model/todo_model.dart';
 import '../../shared/theme.dart';
 
@@ -15,13 +17,20 @@ class ReminderOverlay {
   void Function(String id)? onComplete;
   void Function(String id)? onDismiss;
 
-  void show(
-    BuildContext context, {
+  void show({
     required List<Todo> todos,
     String? title,
     void Function(String id)? onComplete,
     void Function(String id)? onDismiss,
   }) {
+    // Get the overlay directly from the navigator state — avoids Overlay.of()
+    // lookup which fails when context is the Navigator widget itself
+    final overlay = TodoApp.navigatorKey.currentState?.overlay;
+    if (overlay == null) {
+      debugPrint('[ReminderOverlay] overlay not available yet');
+      return;
+    }
+
     this.onComplete = onComplete;
     this.onDismiss = onDismiss;
 
@@ -67,13 +76,16 @@ class ReminderOverlay {
       ),
     );
 
-    Overlay.of(context).insert(_overlayEntry!);
+    overlay.insert(_overlayEntry!);
+    debugPrint('[ReminderOverlay] overlay inserted successfully');
   }
 
   void _removeOverlay() {
     _overlayEntry?.remove();
     _overlayEntry = null;
     _overlayState = null;
+    // Release always-on-top when overlay is dismissed
+    windowManager.setAlwaysOnTop(false);
   }
 
   void dismiss() {

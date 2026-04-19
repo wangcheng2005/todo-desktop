@@ -8,6 +8,7 @@ class TodoListTile extends StatefulWidget {
   final VoidCallback onToggle;
   final VoidCallback onDelete;
   final VoidCallback onEdit;
+  final VoidCallback? onToggleStarted;
 
   const TodoListTile({
     super.key,
@@ -15,6 +16,7 @@ class TodoListTile extends StatefulWidget {
     required this.onToggle,
     required this.onDelete,
     required this.onEdit,
+    this.onToggleStarted,
   });
 
   @override
@@ -233,9 +235,20 @@ class _TodoListTileState extends State<TodoListTile> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        if (widget.onToggleStarted != null && !todo.isCompleted)
+                          _buildIconAction(
+                            todo.isStarted
+                                ? Icons.pause_circle_outline_rounded
+                                : Icons.play_circle_outline_rounded,
+                            todo.isStarted ? '移回待办' : '开始处理',
+                            todo.isStarted ? AppTheme.warning : AppTheme.primary,
+                            widget.onToggleStarted!,
+                          ),
+                        if (widget.onToggleStarted != null && !todo.isCompleted)
+                          const SizedBox(width: 4),
                         _buildIconAction(
                           Icons.edit_outlined,
-                          'e编辑',
+                          '编辑',
                           AppTheme.primary,
                           widget.onEdit,
                         ),
@@ -318,7 +331,7 @@ class _TodoListTileState extends State<TodoListTile> {
       context: context,
       builder: (ctx) => AlertDialog(
         title: const Text('确认删除'),
-        content: Text('确认删除「${widget.todo.title}」？此操作不可恢复。'),
+        content: Text('确认删除「${widget.todo.title}」？可在回收站中恢复。'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),

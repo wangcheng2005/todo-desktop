@@ -5,6 +5,7 @@ import '../../provider/todo_provider.dart';
 import '../widgets/todo_list_tile.dart';
 import '../widgets/add_todo_dialog.dart';
 import '../../../../shared/theme.dart';
+import '../../../settings/settings_dialog.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -81,7 +82,7 @@ class _HomePageState extends ConsumerState<HomePage>
               controller: _tabController,
               children: [
                 _buildTodoList(pending, emptyIcon: Icons.inbox_rounded, emptyText: '暂无待办事项', emptyHint: '点击右下角按钮创建新待办'),
-                _buildTodoList(inProgress, emptyIcon: Icons.timer_outlined, emptyText: '暂无进行中事项', emptyHint: '开始时间到达后自动进入此列表'),
+                _buildTodoList(inProgress, emptyIcon: Icons.timer_outlined, emptyText: '暂无进行中事项', emptyHint: '在待办列表中点击开始处理按钮'),
                 _buildCompletedList(completed),
                 _buildDeletedList(deleted),
               ],
@@ -145,7 +146,35 @@ class _HomePageState extends ConsumerState<HomePage>
             label: '新建',
             onTap: () => _showAddTodoDialog(context),
           ),
+          const SizedBox(width: 8),
+          _buildTopBarIconAction(
+            icon: Icons.settings_rounded,
+            tooltip: '设置',
+            onTap: () => _showSettings(context),
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildTopBarIconAction({
+    required IconData icon,
+    required String tooltip,
+    required VoidCallback onTap,
+  }) {
+    return Tooltip(
+      message: tooltip,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(8),
+        child: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: AppTheme.surfaceDim,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(icon, size: 18, color: AppTheme.textSecondary),
+        ),
       ),
     );
   }
@@ -335,6 +364,8 @@ class _HomePageState extends ConsumerState<HomePage>
             onDelete: () =>
                 ref.read(todoListProvider.notifier).softDeleteTodo(todo.id),
             onEdit: () => _showEditDialog(context, todo),
+            onToggleStarted: () =>
+                ref.read(todoListProvider.notifier).toggleStarted(todo.id),
           ),
         );
       },
@@ -504,6 +535,13 @@ class _HomePageState extends ConsumerState<HomePage>
           ),
         ],
       ),
+    );
+  }
+
+  void _showSettings(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => const SettingsDialog(),
     );
   }
 

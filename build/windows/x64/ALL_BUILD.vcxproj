@@ -148,10 +148,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{1D6020AE-3A8B-3A48-8E07-973AE63AAC27}</Project>
       <Name>flutter_wrapper_plugin</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\plugins\local_notifier\local_notifier_plugin.vcxproj">
-      <Project>{6F58B5CB-E9C9-3810-8BF2-C1A8E462CD41}</Project>
-      <Name>local_notifier_plugin</Name>
-    </ProjectReference>
     <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\plugins\screen_retriever_windows\screen_retriever_windows_plugin.vcxproj">
       <Project>{6342E5B0-608F-3483-AF2F-0664FD984420}</Project>
       <Name>screen_retriever_windows_plugin</Name>

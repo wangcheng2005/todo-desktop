@@ -1,7 +1,7 @@
+﻿import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:window_manager/window_manager.dart';
-import 'package:local_notifier/local_notifier.dart';
 
 import 'app.dart';
 import 'core/storage/storage_service.dart';
@@ -12,11 +12,10 @@ import 'features/todo/provider/todo_provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize window manager
-  await windowManager.ensureInitialized();
+  // Kill stale instances of this app (zombie processes holding Hive locks).
+  await _killStaleInstances();
 
-  // Initialize local notifier for system-level notifications
-  await localNotifier.setup(appName: 'Todo Desktop');
+  await windowManager.ensureInitialized();
 
   const windowOptions = WindowOptions(
     size: Size(800, 600),
@@ -30,7 +29,6 @@ Future<void> main() async {
     await windowManager.focus();
   });
 
-  // Initialize storage
   final storage = StorageService();
   await storage.init();
 
@@ -46,7 +44,6 @@ Future<void> main() async {
 
 class _AppWithServices extends ConsumerStatefulWidget {
   final StorageService storage;
-
   const _AppWithServices({required this.storage});
 
   @override
@@ -67,10 +64,7 @@ class _AppWithServicesState extends ConsumerState<_AppWithServices>
     _trayService = TrayService();
     _schedulerService = SchedulerService(widget.storage);
 
-    // Initialize tray after first frame
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _initServices();
-    });
+    WidgetsBinding.instance.addPostFrameCallback((_) => _initServices());
   }
 
   Future<void> _initServices() async {
@@ -90,14 +84,41 @@ class _AppWithServicesState extends ConsumerState<_AppWithServices>
     super.dispose();
   }
 
+  /// Close button → hide main window to tray.
   @override
   void onWindowClose() async {
-    // Minimize to tray instead of closing
     await windowManager.hide();
   }
 
   @override
   Widget build(BuildContext context) {
     return const TodoApp();
+  }
+}
+
+/// Kill other running instances of todo_desktop.exe (stale / zombie) so that
+/// Hive lock files are released. Skips the current process.
+Future<void> _killStaleInstances() async {
+  if (!Platform.isWindows) return;
+  final myPid = pid;
+  try {
+    final result = await Process.run(
+      'tasklist',
+      ['/fi', 'imagename eq todo_desktop.exe', '/fo', 'csv', '/nh'],
+    );
+    final lines = (result.stdout as String).split('\n');
+    for (final line in lines) {
+      // CSV format: "todo_desktop.exe","12345",...
+      final match = RegExp(r'"todo_desktop\.exe"\s*,\s*"(\d+)"').firstMatch(line);
+      if (match != null) {
+        final stalePid = int.parse(match.group(1)!);
+        if (stalePid != myPid) {
+          Process.runSync('taskkill', ['/f', '/pid', '$stalePid']);
+          debugPrint('[main] Killed stale instance PID $stalePid');
+        }
+      }
+    }
+  } catch (e) {
+    debugPrint('[main] Failed to kill stale instances: $e');
   }
 }

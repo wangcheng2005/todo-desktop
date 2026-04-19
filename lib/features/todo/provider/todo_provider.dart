@@ -125,6 +125,18 @@ class TodoListNotifier extends StateNotifier<List<Todo>> {
     ];
   }
 
+  /// Toggle isStarted (move between 待办 and 进行中)
+  Future<void> toggleStarted(String id) async {
+    final todo = _storage.getTodo(id);
+    if (todo == null) return;
+    final updated = todo.copyWith(isStarted: !todo.isStarted);
+    await _storage.updateTodo(updated);
+    state = [
+      for (final t in state)
+        if (t.id == id) updated else t,
+    ];
+  }
+
   Future<void> updateTodo(String id, {String? title, String? remark, Priority? priority, DateTime? startTime, DateTime? endTime, TodoCategory? category}) async {
     final todo = _storage.getTodo(id);
     if (todo == null) return;

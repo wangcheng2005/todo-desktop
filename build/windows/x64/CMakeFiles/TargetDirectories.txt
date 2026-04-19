@@ -8,9 +8,6 @@ D:/work/todo/todo-desktop/build/windows/x64/flutter/CMakeFiles/INSTALL.dir
 D:/work/todo/todo-desktop/build/windows/x64/runner/CMakeFiles/todo_desktop.dir
 D:/work/todo/todo-desktop/build/windows/x64/runner/CMakeFiles/INSTALL.dir
 D:/work/todo/todo-desktop/build/windows/x64/runner/CMakeFiles/ALL_BUILD.dir
-D:/work/todo/todo-desktop/build/windows/x64/plugins/local_notifier/CMakeFiles/local_notifier_plugin.dir
-D:/work/todo/todo-desktop/build/windows/x64/plugins/local_notifier/CMakeFiles/INSTALL.dir
-D:/work/todo/todo-desktop/build/windows/x64/plugins/local_notifier/CMakeFiles/ALL_BUILD.dir
 D:/work/todo/todo-desktop/build/windows/x64/plugins/screen_retriever_windows/CMakeFiles/screen_retriever_windows_plugin.dir
 D:/work/todo/todo-desktop/build/windows/x64/plugins/screen_retriever_windows/CMakeFiles/INSTALL.dir
 D:/work/todo/todo-desktop/build/windows/x64/plugins/screen_retriever_windows/CMakeFiles/ALL_BUILD.dir

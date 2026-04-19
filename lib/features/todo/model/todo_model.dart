@@ -61,6 +61,9 @@ class Todo extends HiveObject {
   @HiveField(10)
   bool isDeleted;
 
+  @HiveField(11)
+  bool isStarted;
+
   Todo({
     required this.id,
     required this.title,
@@ -73,6 +76,7 @@ class Todo extends HiveObject {
     this.category = TodoCategory.work,
     this.completedAt,
     this.isDeleted = false,
+    this.isStarted = false,
   }) : createdAt = createdAt ?? DateTime.now();
 
   Todo copyWith({
@@ -85,6 +89,7 @@ class Todo extends HiveObject {
     TodoCategory? category,
     DateTime? completedAt,
     bool? isDeleted,
+    bool? isStarted,
   }) {
     return Todo(
       id: id,
@@ -98,6 +103,7 @@ class Todo extends HiveObject {
       category: category ?? this.category,
       completedAt: completedAt ?? this.completedAt,
       isDeleted: isDeleted ?? this.isDeleted,
+      isStarted: isStarted ?? this.isStarted,
     );
   }
 
@@ -133,18 +139,13 @@ class Todo extends HiveObject {
     return DateTime.now().isAfter(endTime!);
   }
 
-  bool get isStarted {
-    if (startTime == null) return false;
-    return !DateTime.now().isBefore(startTime!);
-  }
-
-  /// In progress = started but not completed, not deleted
+  /// In progress = manually started, not completed, not deleted
   bool get isInProgress {
     if (isCompleted || isDeleted) return false;
     return isStarted;
   }
 
-  /// Pending = not started yet, not completed, not deleted
+  /// Pending = not started, not completed, not deleted
   bool get isPending {
     if (isCompleted || isDeleted) return false;
     return !isStarted;

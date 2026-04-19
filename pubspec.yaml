@@ -27,8 +27,6 @@ dependencies:
   intl: ^0.19.0
   # Path provider
   path_provider: ^2.1.5
-  # Windows native notifications
-  local_notifier: ^0.1.6
   # DateTime picker
   omni_datetime_picker: 2.0.4
 
