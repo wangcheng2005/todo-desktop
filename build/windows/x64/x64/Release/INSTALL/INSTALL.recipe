@@ -8,6 +8,9 @@
       <FullPath>D:\work\todo\todo-desktop\build\windows\x64\flutter\x64\Release\flutter_assemble</FullPath>
     </ProjectOutput>
     <ProjectOutput>
+      <FullPath>D:\work\todo\todo-desktop\build\windows\x64\plugins\local_notifier\Release\local_notifier_plugin.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
       <FullPath>D:\work\todo\todo-desktop\build\windows\x64\plugins\screen_retriever_windows\Release\screen_retriever_windows_plugin.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>

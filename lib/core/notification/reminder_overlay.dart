@@ -202,7 +202,7 @@ class _ReminderOverlayState extends State<_ReminderOverlayWidget>
                     padding: const EdgeInsets.fromLTRB(18, 14, 14, 14),
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
-                        colors: [AppTheme.primary, Color(0xFF6366F1)],
+                        colors: [AppTheme.primary, AppTheme.primaryDark],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),

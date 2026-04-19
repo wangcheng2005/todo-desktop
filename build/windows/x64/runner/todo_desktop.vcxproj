@@ -71,7 +71,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\local_notifier\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -91,10 +91,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_HAS_EXCEPTIONS=0;FLUTTER_VERSION=\"1.0.0+1\";FLUTTER_VERSION_MAJOR=1;FLUTTER_VERSION_MINOR=0;FLUTTER_VERSION_PATCH=0;FLUTTER_VERSION_BUILD=1;NOMINMAX;UNICODE;_UNICODE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\local_notifier\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\local_notifier\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -102,7 +102,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\flutter\Debug\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\screen_retriever_windows\Debug\screen_retriever_windows_plugin.lib;..\plugins\system_tray\Debug\system_tray_plugin.lib;..\plugins\window_manager\Debug\window_manager_plugin.lib;D:\work\todo\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\flutter\Debug\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\local_notifier\Debug\local_notifier_plugin.lib;..\plugins\screen_retriever_windows\Debug\screen_retriever_windows_plugin.lib;..\plugins\system_tray\Debug\system_tray_plugin.lib;..\plugins\window_manager\Debug\window_manager_plugin.lib;D:\work\todo\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -120,7 +120,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\local_notifier\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -140,10 +140,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_VERSION=\"1.0.0+1\";FLUTTER_VERSION_MAJOR=1;FLUTTER_VERSION_MINOR=0;FLUTTER_VERSION_PATCH=0;FLUTTER_VERSION_BUILD=1;NOMINMAX;UNICODE;_UNICODE;CMAKE_INTDIR=\"Profile\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\local_notifier\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\local_notifier\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -151,7 +151,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\flutter\Profile\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\screen_retriever_windows\Profile\screen_retriever_windows_plugin.lib;..\plugins\system_tray\Profile\system_tray_plugin.lib;..\plugins\window_manager\Profile\window_manager_plugin.lib;D:\work\todo\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\flutter\Profile\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\local_notifier\Profile\local_notifier_plugin.lib;..\plugins\screen_retriever_windows\Profile\screen_retriever_windows_plugin.lib;..\plugins\system_tray\Profile\system_tray_plugin.lib;..\plugins\window_manager\Profile\window_manager_plugin.lib;D:\work\todo\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -169,7 +169,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\local_notifier\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -189,10 +189,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_VERSION=\"1.0.0+1\";FLUTTER_VERSION_MAJOR=1;FLUTTER_VERSION_MINOR=0;FLUTTER_VERSION_PATCH=0;FLUTTER_VERSION_BUILD=1;NOMINMAX;UNICODE;_UNICODE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\local_notifier\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows;D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\local_notifier\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\include;D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -200,7 +200,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\flutter\Release\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\screen_retriever_windows\Release\screen_retriever_windows_plugin.lib;..\plugins\system_tray\Release\system_tray_plugin.lib;..\plugins\window_manager\Release\window_manager_plugin.lib;D:\work\todo\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\flutter\Release\flutter_wrapper_app.lib;dwmapi.lib;..\plugins\local_notifier\Release\local_notifier_plugin.lib;..\plugins\screen_retriever_windows\Release\screen_retriever_windows_plugin.lib;..\plugins\system_tray\Release\system_tray_plugin.lib;..\plugins\window_manager\Release\window_manager_plugin.lib;D:\work\todo\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -284,6 +284,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\flutter\flutter_wrapper_app.vcxproj">
       <Project>{1B511B83-2C49-32FE-BB0B-59C5CBD4DC9D}</Project>
       <Name>flutter_wrapper_app</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\plugins\local_notifier\local_notifier_plugin.vcxproj">
+      <Project>{6F58B5CB-E9C9-3810-8BF2-C1A8E462CD41}</Project>
+      <Name>local_notifier_plugin</Name>
     </ProjectReference>
     <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\plugins\screen_retriever_windows\screen_retriever_windows_plugin.vcxproj">
       <Project>{6342E5B0-608F-3483-AF2F-0664FD984420}</Project>

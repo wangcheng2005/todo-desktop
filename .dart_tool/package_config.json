@@ -33,9 +33,9 @@
     },
     {
       "name": "bloc",
-      "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/bloc-9.2.0",
+      "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/bloc-8.1.4",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.12"
     },
     {
       "name": "boolean_selector",
@@ -183,9 +183,9 @@
     },
     {
       "name": "flutter_bloc",
-      "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/flutter_bloc-9.1.1",
+      "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/flutter_bloc-8.1.6",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.12"
     },
     {
       "name": "flutter_lints",
@@ -351,7 +351,7 @@
     },
     {
       "name": "omni_datetime_picker",
-      "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/omni_datetime_picker-2.0.7",
+      "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/omni_datetime_picker-2.0.4",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -453,7 +453,7 @@
     },
     {
       "name": "rxdart",
-      "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/rxdart-0.28.0",
+      "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/rxdart-0.27.7",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -650,7 +650,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2026-04-19T09:01:48.280856Z",
+  "generated": "2026-04-19T09:12:34.038552Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
   "flutterRoot": "file:///C:/Users/wangc/fvm/versions/3.24.3",

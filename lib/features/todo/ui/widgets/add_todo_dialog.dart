@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:omni_datetime_picker/omni_datetime_picker.dart';
 import '../../model/todo_model.dart';
 import '../../provider/todo_provider.dart';
 import '../../../../shared/theme.dart';
@@ -43,21 +44,17 @@ class _AddTodoDialogState extends ConsumerState<AddTodoDialog> {
   }
 
   Future<DateTime?> _pickDateTime(DateTime? initial) async {
-    final date = await showDatePicker(
+    final result = await showOmniDateTimePicker(
       context: context,
       initialDate: initial ?? DateTime.now(),
       firstDate: DateTime(2020),
       lastDate: DateTime(2100),
+      is24HourMode: true,
+      borderRadius: BorderRadius.circular(AppTheme.radiusLg),
+      constraints: const BoxConstraints(maxWidth: 350, maxHeight: 580),
+      type: OmniDateTimePickerType.dateAndTime,
     );
-    if (date == null || !mounted) return null;
-    final time = await showTimePicker(
-      context: context,
-      initialTime: initial != null
-          ? TimeOfDay.fromDateTime(initial)
-          : TimeOfDay.now(),
-    );
-    if (time == null) return null;
-    return DateTime(date.year, date.month, date.day, time.hour, time.minute);
+    return result;
   }
 
   Color _priorityColor(Priority p) {

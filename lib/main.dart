@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:local_notifier/local_notifier.dart';
 
 import 'app.dart';
 import 'core/storage/storage_service.dart';
@@ -13,6 +14,9 @@ Future<void> main() async {
 
   // Initialize window manager
   await windowManager.ensureInitialized();
+
+  // Initialize local notifier for system-level notifications
+  await localNotifier.setup(appName: 'Todo Desktop');
 
   const windowOptions = WindowOptions(
     size: Size(800, 600),

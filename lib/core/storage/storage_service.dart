@@ -24,7 +24,7 @@ class StorageService {
   List<Todo> getAllTodos() => _todoBox.values.toList();
 
   List<Todo> getIncompleteTodos() =>
-      _todoBox.values.where((t) => !t.isCompleted).toList();
+      _todoBox.values.where((t) => !t.isCompleted && !t.isDeleted).toList();
 
   List<Todo> getCompletedTodos() =>
       _todoBox.values.where((t) => t.isCompleted).toList();

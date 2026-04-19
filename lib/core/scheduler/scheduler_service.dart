@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:local_notifier/local_notifier.dart';
 import '../../features/todo/model/todo_model.dart';
 import '../../app.dart';
 import '../storage/storage_service.dart';
@@ -17,6 +18,22 @@ class SchedulerService {
   void Function(String id)? onMarkComplete;
 
   SchedulerService(this._storage);
+
+  /// Send a Windows native toast notification (visible even when minimized).
+  Future<void> _sendSystemNotification({
+    required String title,
+    required String body,
+  }) async {
+    try {
+      final notification = LocalNotification(
+        title: title,
+        body: body,
+      );
+      await notification.show();
+    } catch (e) {
+      debugPrint('[SchedulerService] System notification failed: $e');
+    }
+  }
 
   /// Resolve a valid BuildContext from the navigator key.
   /// This context is below MaterialApp / Navigator, so Overlay.of works.
@@ -89,6 +106,13 @@ class SchedulerService {
 
     if (toRemind.isNotEmpty) {
       debugPrint('[SchedulerService] Showing reminders for ${toRemind.length} todos');
+
+      // Always send native notification (works even when minimized)
+      final body = toRemind.length == 1
+          ? toRemind.first.title
+          : toRemind.map((t) => '• ${t.title}').join('\n');
+      _sendSystemNotification(title: '⏰ 待办提醒', body: body);
+
       _bringWindowToFront();
       ReminderOverlay().show(
         ctx,
@@ -142,6 +166,12 @@ class SchedulerService {
     if (ctx == null || !ctx.mounted) return;
 
     _storage.setLastDailyReminder(DateTime.now());
+
+    // Always send native notification (works even when minimized)
+    final body = todos.length == 1
+        ? todos.first.title
+        : '你有 ${todos.length} 项待办事项需要处理';
+    _sendSystemNotification(title: '🌅 每日待办提醒', body: body);
 
     _bringWindowToFront();
     ReminderOverlay().show(

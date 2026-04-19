@@ -31,9 +31,9 @@ async
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/async-2.11.0/
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/async-2.11.0/lib/
 bloc
-2.14
-file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/bloc-9.2.0/
-file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/bloc-9.2.0/lib/
+2.12
+file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/bloc-8.1.4/
+file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/bloc-8.1.4/lib/
 boolean_selector
 2.17
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/boolean_selector-2.1.1/
@@ -127,9 +127,9 @@ fixnum
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/fixnum-1.1.1/
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/fixnum-1.1.1/lib/
 flutter_bloc
-2.14
-file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/flutter_bloc-9.1.1/
-file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/flutter_bloc-9.1.1/lib/
+2.12
+file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/flutter_bloc-8.1.6/
+file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/flutter_bloc-8.1.6/lib/
 flutter_lints
 3.5
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/flutter_lints-5.0.0/
@@ -236,8 +236,8 @@ file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/nested-1.0.0/
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/nested-1.0.0/lib/
 omni_datetime_picker
 3.4
-file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/omni_datetime_picker-2.0.7/
-file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/omni_datetime_picker-2.0.7/lib/
+file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/omni_datetime_picker-2.0.4/
+file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/omni_datetime_picker-2.0.4/lib/
 package_config
 3.4
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/package_config-2.2.0/
@@ -304,8 +304,8 @@ file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/riverpod_annotation-2.6.1/
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/riverpod_annotation-2.6.1/lib/
 rxdart
 2.12
-file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/rxdart-0.28.0/
-file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/rxdart-0.28.0/lib/
+file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/rxdart-0.27.7/
+file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/rxdart-0.27.7/lib/
 screen_retriever
 3.0
 file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/screen_retriever-0.2.0/
