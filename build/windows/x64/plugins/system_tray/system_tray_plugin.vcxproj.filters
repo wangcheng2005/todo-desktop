@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\system_tray_plugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\errors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\app_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\menu_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\tray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\system_tray\windows\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3AAA0705-0672-3112-AB30-8C32080558D4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
