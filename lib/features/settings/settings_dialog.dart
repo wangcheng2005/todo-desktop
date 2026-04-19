@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
-import '../../../../core/services/startup_service.dart';
-import '../../../../shared/theme.dart';
+import '../../core/scheduler/scheduler_service.dart';
+import '../../core/services/startup_service.dart';
+import '../../core/storage/storage_service.dart';
+import '../../shared/theme.dart';
 
 /// Settings dialog — currently contains only the auto-startup toggle.
 class SettingsDialog extends StatefulWidget {
-  const SettingsDialog({super.key});
+  final StorageService storage;
+  final SchedulerService scheduler;
+
+  const SettingsDialog({
+    super.key,
+    required this.storage,
+    required this.scheduler,
+  });
 
   @override
   State<SettingsDialog> createState() => _SettingsDialogState();
@@ -13,6 +22,9 @@ class SettingsDialog extends StatefulWidget {
 class _SettingsDialogState extends State<SettingsDialog> {
   bool _autoStartup = false;
   bool _loading = true;
+  int _notificationInterval = 10;
+
+  static const _intervalOptions = [5, 10, 30, 60];
 
   @override
   void initState() {
@@ -22,12 +34,20 @@ class _SettingsDialogState extends State<SettingsDialog> {
 
   Future<void> _loadSettings() async {
     final enabled = await StartupService.isEnabled();
+    final interval = widget.storage.getNotificationInterval();
     if (mounted) {
       setState(() {
         _autoStartup = enabled;
+        _notificationInterval = interval;
         _loading = false;
       });
     }
+  }
+
+  Future<void> _setNotificationInterval(int minutes) async {
+    setState(() => _notificationInterval = minutes);
+    await widget.storage.setNotificationInterval(minutes);
+    widget.scheduler.setInterval(minutes);
   }
 
   Future<void> _toggleAutoStartup(bool value) async {
@@ -124,6 +144,46 @@ class _SettingsDialogState extends State<SettingsDialog> {
                             value: _autoStartup,
                             onChanged: _toggleAutoStartup,
                             activeColor: AppTheme.primary,
+                          ),
+                        ),
+                      ],
+                    ),
+                    _buildSection(
+                      title: '通知',
+                      children: [
+                        _SettingsTile(
+                          icon: Icons.timer_rounded,
+                          iconColor: const Color(0xFFFD7E14),
+                          title: '通知间隔',
+                          subtitle: '每隔一段时间提醒未完成的待办事项',
+                          trailing: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: AppTheme.primary.withOpacity(0.08),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: AppTheme.primary.withOpacity(0.2)),
+                            ),
+                            child: DropdownButton<int>(
+                              value: _notificationInterval,
+                              isDense: true,
+                              underline: const SizedBox.shrink(),
+                              style: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                                color: AppTheme.primary,
+                              ),
+                              items: _intervalOptions
+                                  .map((m) => DropdownMenuItem(
+                                        value: m,
+                                        child: Text('$m 分钟'),
+                                      ))
+                                  .toList(),
+                              onChanged: (v) {
+                                if (v != null) _setNotificationInterval(v);
+                              },
+                            ),
                           ),
                         ),
                       ],

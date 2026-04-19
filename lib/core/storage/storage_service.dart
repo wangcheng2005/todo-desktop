@@ -71,4 +71,14 @@ class StorageService {
   Future<void> setLastDailyReminder(DateTime dt) async {
     await _settingsBox.put('lastDailyReminder', dt);
   }
+
+  /// Notification interval in minutes (default 10)
+  int getNotificationInterval() {
+    final val = _settingsBox.get('notificationInterval');
+    return val is int ? val : 10;
+  }
+
+  Future<void> setNotificationInterval(int minutes) async {
+    await _settingsBox.put('notificationInterval', minutes);
+  }
 }

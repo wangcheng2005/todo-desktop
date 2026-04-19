@@ -10,11 +10,16 @@ class SchedulerService {
   final ToastService _toast;
   Timer? _periodicTimer;
   List<Todo> _currentTodos = [];
+  int _intervalMinutes = 10;
 
   SchedulerService({required ToastService toast}) : _toast = toast;
 
-  Future<void> start({required List<Todo> initialTodos}) async {
+  Future<void> start({
+    required List<Todo> initialTodos,
+    int intervalMinutes = 10,
+  }) async {
     _currentTodos = initialTodos;
+    _intervalMinutes = intervalMinutes;
 
     // Show startup reminder after a short delay
     if (initialTodos.isNotEmpty) {
@@ -22,17 +27,28 @@ class SchedulerService {
       await _toast.showTodoNotification(initialTodos);
     }
 
-    // Start periodic timer (every 10 minutes)
-    _periodicTimer = Timer.periodic(
-      const Duration(minutes: 10),
-      (_) => _onPeriodicTick(),
-    );
-    debugPrint('[Scheduler] Started, ${initialTodos.length} todos, periodic=10min');
+    _startTimer();
+    debugPrint('[Scheduler] Started, ${initialTodos.length} todos, periodic=${_intervalMinutes}min');
   }
 
   void stop() {
     _periodicTimer?.cancel();
     _periodicTimer = null;
+  }
+
+  /// Change the notification interval and restart the timer
+  void setInterval(int minutes) {
+    _intervalMinutes = minutes;
+    _startTimer();
+    debugPrint('[Scheduler] Interval changed to ${minutes}min');
+  }
+
+  void _startTimer() {
+    _periodicTimer?.cancel();
+    _periodicTimer = Timer.periodic(
+      Duration(minutes: _intervalMinutes),
+      (_) => _onPeriodicTick(),
+    );
   }
 
   /// Update the cached todo list (called by main.dart on every change)

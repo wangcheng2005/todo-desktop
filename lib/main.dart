@@ -34,19 +34,33 @@ Future<void> main(List<String> args) async {
   final storage = StorageService();
   await storage.init();
 
+  final toastService = ToastService();
+  final schedulerService = SchedulerService(toast: toastService);
+
   runApp(
     ProviderScope(
       overrides: [
         storageServiceProvider.overrideWithValue(storage),
+        schedulerServiceProvider.overrideWithValue(schedulerService),
       ],
-      child: _AppWithServices(storage: storage),
+      child: _AppWithServices(
+        storage: storage,
+        toastService: toastService,
+        schedulerService: schedulerService,
+      ),
     ),
   );
 }
 
 class _AppWithServices extends ConsumerStatefulWidget {
   final StorageService storage;
-  const _AppWithServices({required this.storage});
+  final ToastService toastService;
+  final SchedulerService schedulerService;
+  const _AppWithServices({
+    required this.storage,
+    required this.toastService,
+    required this.schedulerService,
+  });
 
   @override
   ConsumerState<_AppWithServices> createState() => _AppWithServicesState();
@@ -55,8 +69,8 @@ class _AppWithServices extends ConsumerStatefulWidget {
 class _AppWithServicesState extends ConsumerState<_AppWithServices>
     with WindowListener {
   late TrayService _trayService;
-  late SchedulerService _schedulerService;
-  late ToastService _toastService;
+
+  SchedulerService get _schedulerService => widget.schedulerService;
 
   @override
   void initState() {
@@ -64,15 +78,13 @@ class _AppWithServicesState extends ConsumerState<_AppWithServices>
     windowManager.addListener(this);
     windowManager.setPreventClose(true);
 
-    _toastService = ToastService();
     _trayService = TrayService();
-    _schedulerService = SchedulerService(toast: _toastService);
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _initServices());
   }
 
   Future<void> _initServices() async {
-    await _toastService.init();
+    await widget.toastService.init();
     await _trayService.init();
 
     // Start scheduler with current incomplete todos
@@ -80,7 +92,11 @@ class _AppWithServicesState extends ConsumerState<_AppWithServices>
         .read(todoListProvider)
         .where((t) => !t.isCompleted && !t.isDeleted)
         .toList();
-    await _schedulerService.start(initialTodos: initialTodos);
+    final interval = widget.storage.getNotificationInterval();
+    await _schedulerService.start(
+      initialTodos: initialTodos,
+      intervalMinutes: interval,
+    );
 
     // Watch todo list for changes and show notifications
     ref.listen(todoListProvider, (prev, next) {

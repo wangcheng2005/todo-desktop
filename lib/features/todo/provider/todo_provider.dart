@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import '../model/todo_model.dart';
 import '../../../core/storage/storage_service.dart';
+import '../../../core/scheduler/scheduler_service.dart';
 
 const _uuid = Uuid();
 
@@ -10,6 +11,10 @@ enum SortMode { byTime, byPriority }
 
 final storageServiceProvider = Provider<StorageService>((ref) {
   throw UnimplementedError('StorageService must be overridden at startup');
+});
+
+final schedulerServiceProvider = Provider<SchedulerService>((ref) {
+  throw UnimplementedError('SchedulerService must be overridden at startup');
 });
 
 /// Current sort mode

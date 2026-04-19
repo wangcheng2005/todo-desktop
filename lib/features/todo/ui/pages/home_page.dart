@@ -539,9 +539,14 @@ class _HomePageState extends ConsumerState<HomePage>
   }
 
   void _showSettings(BuildContext context) {
+    final storage = ref.read(storageServiceProvider);
+    final scheduler = ref.read(schedulerServiceProvider);
     showDialog(
       context: context,
-      builder: (_) => const SettingsDialog(),
+      builder: (_) => SettingsDialog(
+        storage: storage,
+        scheduler: scheduler,
+      ),
     );
   }
 
