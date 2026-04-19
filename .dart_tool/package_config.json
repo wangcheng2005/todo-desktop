@@ -620,6 +620,12 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "win_toast",
+      "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/win_toast-0.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "window_manager",
       "rootUri": "file:///D:/flutter_pub_cache/hosted/pub.flutter-io.cn/window_manager-0.4.3",
       "packageUri": "lib/",
@@ -644,7 +650,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2026-04-19T10:39:16.909831Z",
+  "generated": "2026-04-19T11:58:27.726497Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
   "flutterRoot": "file:///C:/Users/wangc/fvm/versions/3.24.3",

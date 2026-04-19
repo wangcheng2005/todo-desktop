@@ -4,14 +4,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:window_manager/window_manager.dart';
 
 import 'app.dart';
+import 'core/notification/toast_service.dart';
 import 'core/storage/storage_service.dart';
 import 'core/tray/tray_service.dart';
 import 'core/scheduler/scheduler_service.dart';
 import 'features/todo/provider/todo_provider.dart';
 
-Future<void> main() async {
+Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // --- Main window ----------------------------------------------------------
   // Kill stale instances of this app (zombie processes holding Hive locks).
   await _killStaleInstances();
 
@@ -54,6 +56,7 @@ class _AppWithServicesState extends ConsumerState<_AppWithServices>
     with WindowListener {
   late TrayService _trayService;
   late SchedulerService _schedulerService;
+  late ToastService _toastService;
 
   @override
   void initState() {
@@ -61,19 +64,37 @@ class _AppWithServicesState extends ConsumerState<_AppWithServices>
     windowManager.addListener(this);
     windowManager.setPreventClose(true);
 
+    _toastService = ToastService();
     _trayService = TrayService();
-    _schedulerService = SchedulerService(widget.storage);
+    _schedulerService = SchedulerService(toast: _toastService);
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _initServices());
   }
 
   Future<void> _initServices() async {
+    await _toastService.init();
     await _trayService.init();
-    _schedulerService.start(
-      onMarkComplete: (id) {
-        ref.read(todoListProvider.notifier).toggleComplete(id);
-      },
-    );
+
+    // Start scheduler with current incomplete todos
+    final initialTodos = ref
+        .read(todoListProvider)
+        .where((t) => !t.isCompleted && !t.isDeleted)
+        .toList();
+    await _schedulerService.start(initialTodos: initialTodos);
+
+    // Watch todo list for changes and show notifications
+    ref.listen(todoListProvider, (prev, next) {
+      final incompleteTodos =
+          next.where((t) => !t.isCompleted && !t.isDeleted).toList();
+
+      // Always keep scheduler in sync
+      _schedulerService.updateTodos(incompleteTodos);
+
+      // If new todo was added, show notification immediately
+      if (prev != null && next.length > prev.length) {
+        _schedulerService.onTodoCreated(incompleteTodos);
+      }
+    });
   }
 
   @override
@@ -84,10 +105,10 @@ class _AppWithServicesState extends ConsumerState<_AppWithServices>
     super.dispose();
   }
 
-  /// Close button → hide main window to tray.
+  /// Close button / Alt+F4 -> hide to tray, keep process alive.
   @override
-  void onWindowClose() async {
-    await windowManager.hide();
+  void onWindowClose() {
+    windowManager.hide();
   }
 
   @override

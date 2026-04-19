@@ -813,6 +813,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.3"
+  win_toast:
+    dependency: "direct main"
+    description:
+      name: win_toast
+      sha256: "6ef6f45b119984457be1b6c6e96c343573ccf270d40c31c6f08e37d159d872bf"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.1"
   window_manager:
     dependency: "direct main"
     description:

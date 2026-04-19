@@ -54,6 +54,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("D:/work/todo/todo-desktop/build/windows/x64/plugins/win_toast/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/cmake_install.cmake")
 endif()
 
@@ -162,7 +167,7 @@ endif()
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-     "D:/work/todo/todo-desktop/build/windows/x64/runner/Debug/screen_retriever_windows_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Debug/system_tray_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Debug/window_manager_plugin.dll")
+     "D:/work/todo/todo-desktop/build/windows/x64/runner/Debug/screen_retriever_windows_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Debug/system_tray_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Debug/win_toast_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Debug/window_manager_plugin.dll")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
@@ -172,11 +177,12 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
     file(INSTALL DESTINATION "D:/work/todo/todo-desktop/build/windows/x64/runner/Debug" TYPE FILE FILES
       "D:/work/todo/todo-desktop/build/windows/x64/plugins/screen_retriever_windows/Debug/screen_retriever_windows_plugin.dll"
       "D:/work/todo/todo-desktop/build/windows/x64/plugins/system_tray/Debug/system_tray_plugin.dll"
+      "D:/work/todo/todo-desktop/build/windows/x64/plugins/win_toast/Debug/win_toast_plugin.dll"
       "D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/Debug/window_manager_plugin.dll"
       )
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Pp][Rr][Oo][Ff][Ii][Ll][Ee])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-     "D:/work/todo/todo-desktop/build/windows/x64/runner/Profile/screen_retriever_windows_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Profile/system_tray_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Profile/window_manager_plugin.dll")
+     "D:/work/todo/todo-desktop/build/windows/x64/runner/Profile/screen_retriever_windows_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Profile/system_tray_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Profile/win_toast_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Profile/window_manager_plugin.dll")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
@@ -186,11 +192,12 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
     file(INSTALL DESTINATION "D:/work/todo/todo-desktop/build/windows/x64/runner/Profile" TYPE FILE FILES
       "D:/work/todo/todo-desktop/build/windows/x64/plugins/screen_retriever_windows/Profile/screen_retriever_windows_plugin.dll"
       "D:/work/todo/todo-desktop/build/windows/x64/plugins/system_tray/Profile/system_tray_plugin.dll"
+      "D:/work/todo/todo-desktop/build/windows/x64/plugins/win_toast/Profile/win_toast_plugin.dll"
       "D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/Profile/window_manager_plugin.dll"
       )
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-     "D:/work/todo/todo-desktop/build/windows/x64/runner/Release/screen_retriever_windows_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Release/system_tray_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Release/window_manager_plugin.dll")
+     "D:/work/todo/todo-desktop/build/windows/x64/runner/Release/screen_retriever_windows_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Release/system_tray_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Release/win_toast_plugin.dll;D:/work/todo/todo-desktop/build/windows/x64/runner/Release/window_manager_plugin.dll")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
@@ -200,6 +207,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
     file(INSTALL DESTINATION "D:/work/todo/todo-desktop/build/windows/x64/runner/Release" TYPE FILE FILES
       "D:/work/todo/todo-desktop/build/windows/x64/plugins/screen_retriever_windows/Release/screen_retriever_windows_plugin.dll"
       "D:/work/todo/todo-desktop/build/windows/x64/plugins/system_tray/Release/system_tray_plugin.dll"
+      "D:/work/todo/todo-desktop/build/windows/x64/plugins/win_toast/Release/win_toast_plugin.dll"
       "D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/Release/window_manager_plugin.dll"
       )
   endif()

@@ -160,6 +160,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{00993AE0-F965-39A4-A2C8-9D1D2F40F67C}</Project>
       <Name>todo_desktop</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\plugins\win_toast\win_toast_plugin.vcxproj">
+      <Project>{4ABCDDC4-EEDC-3C90-807D-047FE5614CB2}</Project>
+      <Name>win_toast_plugin</Name>
+    </ProjectReference>
     <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\plugins\window_manager\window_manager_plugin.vcxproj">
       <Project>{90738D6B-09A7-3DAE-B543-0D5FB393ED44}</Project>
       <Name>window_manager_plugin</Name>

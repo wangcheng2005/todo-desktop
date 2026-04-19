@@ -1,0 +1,41 @@
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+*.swp
+*.swo
+pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.iml
+.DS_Store
+*.sublime-workspace
+
+# Windows specific
+windows/flutter/ephemeral/
+windows/flutter/generated*
+.vs/
+*.exe
+*.dll
+*.dylib
+*.so
+*.unitypackage
+
+# Generated files
+lib/core/notification/reminder_popup_app.g.dart
+lib/features/todo/model/todo_model.g.dart
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local storage
+**/hive/

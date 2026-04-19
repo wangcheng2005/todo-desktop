@@ -21,6 +21,8 @@ dependencies:
   system_tray: ^2.0.3
   # Window management
   window_manager: ^0.4.3
+  # Windows Toast Notifications
+  win_toast: ^0.1.0
   # UUID generation
   uuid: ^3.0.7
   # Date formatting

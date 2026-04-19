@@ -57,6 +57,9 @@ class TrayService {
   }
 
   Future<void> _showWindow() async {
+    if (await windowManager.isMinimized()) {
+      await windowManager.restore();
+    }
     await windowManager.show();
     await windowManager.focus();
   }
