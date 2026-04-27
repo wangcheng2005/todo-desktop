@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\work\todo\todo-desktop\windows\runner\flutter_window.cpp">
+    <ClCompile Include="D:\workspace\ai\todo-desktop\windows\runner\flutter_window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\work\todo\todo-desktop\windows\runner\main.cpp">
+    <ClCompile Include="D:\workspace\ai\todo-desktop\windows\runner\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\work\todo\todo-desktop\windows\runner\utils.cpp">
+    <ClCompile Include="D:\workspace\ai\todo-desktop\windows\runner\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\work\todo\todo-desktop\windows\runner\win32_window.cpp">
+    <ClCompile Include="D:\workspace\ai\todo-desktop\windows\runner\win32_window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\generated_plugin_registrant.cc">
+    <ClCompile Include="D:\workspace\ai\todo-desktop\windows\flutter\generated_plugin_registrant.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\work\todo\todo-desktop\windows\runner\CMakeLists.txt" />
+    <CustomBuild Include="D:\workspace\ai\todo-desktop\windows\runner\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="D:\work\todo\todo-desktop\windows\runner\Runner.rc">
+    <ResourceCompile Include="D:\workspace\ai\todo-desktop\windows\runner\Runner.rc">
       <Filter>Source Files</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{3AAA0705-0672-3112-AB30-8C32080558D4}</UniqueIdentifier>
+      <UniqueIdentifier>{425C74B1-4992-35A4-9166-19690BC0F09A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

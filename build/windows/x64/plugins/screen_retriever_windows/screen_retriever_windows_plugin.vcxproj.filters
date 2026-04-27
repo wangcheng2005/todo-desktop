@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\screen_retriever_windows_plugin_c_api.cpp">
+    <ClCompile Include="D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\screen_retriever_windows_plugin_c_api.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\screen_retriever_windows_plugin.cpp">
+    <ClCompile Include="D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\screen_retriever_windows_plugin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include\screen_retriever_windows\screen_retriever_windows_plugin_c_api.h">
+    <ClInclude Include="D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\include\screen_retriever_windows\screen_retriever_windows_plugin_c_api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\screen_retriever_windows_plugin.h">
+    <ClInclude Include="D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\screen_retriever_windows_plugin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\CMakeLists.txt" />
+    <CustomBuild Include="D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\screen_retriever_windows\windows\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{6E160B07-C7C8-3F8C-BB12-A41522B8EBFA}</UniqueIdentifier>
+      <UniqueIdentifier>{E3F75BAE-2211-3EB2-89F2-457127713D0F}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{3AAA0705-0672-3112-AB30-8C32080558D4}</UniqueIdentifier>
+      <UniqueIdentifier>{425C74B1-4992-35A4-9166-19690BC0F09A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

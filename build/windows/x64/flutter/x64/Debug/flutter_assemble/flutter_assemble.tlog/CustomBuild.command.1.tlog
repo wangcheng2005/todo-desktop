@@ -1,6 +1,6 @@
-^D:\WORK\TODO\TODO-DESKTOP\BUILD\WINDOWS\X64\CMAKEFILES\2C108DD5230359B877467F8EF6B5FABA\FLUTTER_WINDOWS.DLL.RULE
+^D:\WORKSPACE\AI\TODO-DESKTOP\BUILD\WINDOWS\X64\CMAKEFILES\68A4BC41033A27CCA1FBAE4468D72C9A\FLUTTER_WINDOWS.DLL.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\Users\wangc\fvm\versions\3.24.3 PROJECT_DIR=D:\work\todo\todo-desktop FLUTTER_ROOT=C:\Users\wangc\fvm\versions\3.24.3 FLUTTER_EPHEMERAL_DIR=D:\work\todo\todo-desktop\windows\flutter\ephemeral PROJECT_DIR=D:\work\todo\todo-desktop FLUTTER_TARGET=D:\work\todo\todo-desktop\lib\main.dart DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=D:\work\todo\todo-desktop\.dart_tool\package_config.json C:/Users/wangc/fvm/versions/3.24.3/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=D:\soft\flutter\3.24.0 PROJECT_DIR=D:\workspace\ai\todo-desktop FLUTTER_ROOT=D:\soft\flutter\3.24.0 FLUTTER_EPHEMERAL_DIR=D:\workspace\ai\todo-desktop\windows\flutter\ephemeral PROJECT_DIR=D:\workspace\ai\todo-desktop FLUTTER_TARGET=D:\workspace\ai\todo-desktop\lib\main.dart DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=D:\workspace\ai\todo-desktop\.dart_tool\package_config.json D:/soft/flutter/3.24.0/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -8,7 +8,7 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^D:\WORK\TODO\TODO-DESKTOP\BUILD\WINDOWS\X64\CMAKEFILES\638BD3970E82E612458BF466C93CC78A\FLUTTER_ASSEMBLE.RULE
+^D:\WORKSPACE\AI\TODO-DESKTOP\BUILD\WINDOWS\X64\CMAKEFILES\3CB486B49095644B003C23F01624BC9F\FLUTTER_ASSEMBLE.RULE
 setlocal
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -16,9 +16,9 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^D:\WORK\TODO\TODO-DESKTOP\WINDOWS\FLUTTER\CMAKELISTS.TXT
+^D:\WORKSPACE\AI\TODO-DESKTOP\WINDOWS\FLUTTER\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/work/todo/todo-desktop/windows -BD:/work/todo/todo-desktop/build/windows/x64 --check-stamp-file D:/work/todo/todo-desktop/build/windows/x64/flutter/CMakeFiles/generate.stamp
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/workspace/ai/todo-desktop/windows -BD:/workspace/ai/todo-desktop/build/windows/x64 --check-stamp-file D:/workspace/ai/todo-desktop/build/windows/x64/flutter/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

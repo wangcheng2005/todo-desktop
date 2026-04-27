@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
@@ -18,9 +18,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{90738D6B-09A7-3DAE-B543-0D5FB393ED44}</ProjectGuid>
+    <ProjectGuid>{5F3E2818-7EFC-3094-BA19-29704A50E05A}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>window_manager_plugin</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -29,17 +29,17 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -50,19 +50,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\work\todo\todo-desktop\build\windows\x64\plugins\window_manager\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\workspace\ai\todo-desktop\build\windows\x64\plugins\window_manager\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">window_manager_plugin.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">window_manager_plugin</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">D:\work\todo\todo-desktop\build\windows\x64\plugins\window_manager\Profile\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">D:\workspace\ai\todo-desktop\build\windows\x64\plugins\window_manager\Profile\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">window_manager_plugin.dir\Profile\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">window_manager_plugin</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\work\todo\todo-desktop\build\windows\x64\plugins\window_manager\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\workspace\ai\todo-desktop\build\windows\x64\plugins\window_manager\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">window_manager_plugin.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">window_manager_plugin</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
@@ -71,7 +71,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\workspace\ai\todo-desktop\windows\flutter\ephemeral;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -86,15 +86,15 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_HAS_EXCEPTIONS=0;_DEBUG;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR="Debug";window_manager_plugin_EXPORTS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_HAS_EXCEPTIONS=0;_DEBUG;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR="Debug";window_manager_plugin_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR=\"Debug\";window_manager_plugin_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR=\"Debug\";window_manager_plugin_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\workspace\ai\todo-desktop\windows\flutter\ephemeral;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\workspace\ai\todo-desktop\windows\flutter\ephemeral;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -102,13 +102,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\flutter\Debug\flutter_wrapper_plugin.lib;D:\work\todo\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\flutter\Debug\flutter_wrapper_plugin.lib;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/Debug/window_manager_plugin.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/Debug/window_manager_plugin.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/workspace/ai/todo-desktop/build/windows/x64/plugins/window_manager/Debug/window_manager_plugin.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/workspace/ai/todo-desktop/build/windows/x64/plugins/window_manager/Debug/window_manager_plugin.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -117,7 +117,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\workspace\ai\todo-desktop\windows\flutter\ephemeral;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -130,17 +130,17 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR="Profile";window_manager_plugin_EXPORTS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR="Profile";window_manager_plugin_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR=\"Profile\";window_manager_plugin_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR=\"Profile\";window_manager_plugin_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\workspace\ai\todo-desktop\windows\flutter\ephemeral;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\workspace\ai\todo-desktop\windows\flutter\ephemeral;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -148,13 +148,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\flutter\Profile\flutter_wrapper_plugin.lib;D:\work\todo\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\flutter\Profile\flutter_wrapper_plugin.lib;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/Profile/window_manager_plugin.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/Profile/window_manager_plugin.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/workspace/ai/todo-desktop/build/windows/x64/plugins/window_manager/Profile/window_manager_plugin.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/workspace/ai/todo-desktop/build/windows/x64/plugins/window_manager/Profile/window_manager_plugin.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -163,7 +163,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\workspace\ai\todo-desktop\windows\flutter\ephemeral;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -176,17 +176,17 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR="Release";window_manager_plugin_EXPORTS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR="Release";window_manager_plugin_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR=\"Release\";window_manager_plugin_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;FLUTTER_PLUGIN_IMPL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;UNICODE;_UNICODE;CMAKE_INTDIR=\"Release\";window_manager_plugin_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\workspace\ai\todo-desktop\windows\flutter\ephemeral;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\work\todo\todo-desktop\windows\flutter\ephemeral;D:\work\todo\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\workspace\ai\todo-desktop\windows\flutter\ephemeral;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\cpp_client_wrapper\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -194,13 +194,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\flutter\Release\flutter_wrapper_plugin.lib;D:\work\todo\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\flutter\Release\flutter_wrapper_plugin.lib;D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\flutter_windows.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/Release/window_manager_plugin.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/Release/window_manager_plugin.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/workspace/ai/todo-desktop/build/windows/x64/plugins/window_manager/Release/window_manager_plugin.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/workspace/ai/todo-desktop/build/windows/x64/plugins/window_manager/Release/window_manager_plugin.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -208,11 +208,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\CMakeLists.txt">
-      <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/work/todo/todo-desktop/windows/flutter/ephemeral/.plugin_symlinks/window_manager/windows/CMakeLists.txt</Message>
+    <CustomBuild Include="D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/workspace/ai/todo-desktop/windows/flutter/ephemeral/.plugin_symlinks/window_manager/windows/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/work/todo/todo-desktop/windows -BD:/work/todo/todo-desktop/build/windows/x64 --check-stamp-file D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/CMakeFiles/generate.stamp
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/workspace/ai/todo-desktop/windows -BD:/workspace/ai/todo-desktop/build/windows/x64 --check-stamp-file D:/workspace/ai/todo-desktop/build/windows/x64/plugins/window_manager/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -221,11 +221,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\work\todo\todo-desktop\build\windows\x64\plugins\window_manager\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\workspace\ai\todo-desktop\build\windows\x64\plugins\window_manager\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule D:/work/todo/todo-desktop/windows/flutter/ephemeral/.plugin_symlinks/window_manager/windows/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule D:/workspace/ai/todo-desktop/windows/flutter/ephemeral/.plugin_symlinks/window_manager/windows/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/work/todo/todo-desktop/windows -BD:/work/todo/todo-desktop/build/windows/x64 --check-stamp-file D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/CMakeFiles/generate.stamp
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/workspace/ai/todo-desktop/windows -BD:/workspace/ai/todo-desktop/build/windows/x64 --check-stamp-file D:/workspace/ai/todo-desktop/build/windows/x64/plugins/window_manager/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,11 +234,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">D:\work\todo\todo-desktop\build\windows\x64\plugins\window_manager\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">D:\workspace\ai\todo-desktop\build\windows\x64\plugins\window_manager\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/work/todo/todo-desktop/windows/flutter/ephemeral/.plugin_symlinks/window_manager/windows/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/workspace/ai/todo-desktop/windows/flutter/ephemeral/.plugin_symlinks/window_manager/windows/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/work/todo/todo-desktop/windows -BD:/work/todo/todo-desktop/build/windows/x64 --check-stamp-file D:/work/todo/todo-desktop/build/windows/x64/plugins/window_manager/CMakeFiles/generate.stamp
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/workspace/ai/todo-desktop/windows -BD:/workspace/ai/todo-desktop/build/windows/x64 --check-stamp-file D:/workspace/ai/todo-desktop/build/windows/x64/plugins/window_manager/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -247,29 +247,29 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\work\todo\todo-desktop\build\windows\x64\plugins\window_manager\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\workspace\ai\todo-desktop\build\windows\x64\plugins\window_manager\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\window_manager.cpp" />
-    <ClCompile Include="D:\work\todo\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\window_manager_plugin.cpp" />
+    <ClCompile Include="D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\window_manager.cpp" />
+    <ClCompile Include="D:\workspace\ai\todo-desktop\windows\flutter\ephemeral\.plugin_symlinks\window_manager\windows\window_manager_plugin.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\ZERO_CHECK.vcxproj">
-      <Project>{96810BA8-3447-36FF-B0E0-CDEF924FD130}</Project>
+    <ProjectReference Include="D:\workspace\ai\todo-desktop\build\windows\x64\ZERO_CHECK.vcxproj">
+      <Project>{8ED235F1-C800-306A-8810-953889F0D612}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\flutter\flutter_assemble.vcxproj">
-      <Project>{AC265731-B5A9-3EA2-AC16-9BBCC7B32B8A}</Project>
+    <ProjectReference Include="D:\workspace\ai\todo-desktop\build\windows\x64\flutter\flutter_assemble.vcxproj">
+      <Project>{4E26173C-CB73-336E-B623-D6BB2E9625C4}</Project>
       <Name>flutter_assemble</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\work\todo\todo-desktop\build\windows\x64\flutter\flutter_wrapper_plugin.vcxproj">
-      <Project>{1D6020AE-3A8B-3A48-8E07-973AE63AAC27}</Project>
+    <ProjectReference Include="D:\workspace\ai\todo-desktop\build\windows\x64\flutter\flutter_wrapper_plugin.vcxproj">
+      <Project>{7405A7A7-2F68-3719-9383-232ACE303279}</Project>
       <Name>flutter_wrapper_plugin</Name>
     </ProjectReference>
   </ItemGroup>

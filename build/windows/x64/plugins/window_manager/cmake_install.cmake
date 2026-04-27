@@ -1,4 +1,4 @@
-# Install script for directory: D:/work/todo/todo-desktop/windows/flutter/ephemeral/.plugin_symlinks/window_manager/windows
+# Install script for directory: D:/workspace/ai/todo-desktop/windows/flutter/ephemeral/.plugin_symlinks/window_manager/windows
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

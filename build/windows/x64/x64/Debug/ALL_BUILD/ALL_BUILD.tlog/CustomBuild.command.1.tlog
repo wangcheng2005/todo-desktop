@@ -1,6 +1,6 @@
-^D:\WORK\TODO\TODO-DESKTOP\WINDOWS\CMAKELISTS.TXT
+^D:\WORKSPACE\AI\TODO-DESKTOP\WINDOWS\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/work/todo/todo-desktop/windows -BD:/work/todo/todo-desktop/build/windows/x64 --check-stamp-file D:/work/todo/todo-desktop/build/windows/x64/CMakeFiles/generate.stamp
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/workspace/ai/todo-desktop/windows -BD:/workspace/ai/todo-desktop/build/windows/x64 --check-stamp-file D:/workspace/ai/todo-desktop/build/windows/x64/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

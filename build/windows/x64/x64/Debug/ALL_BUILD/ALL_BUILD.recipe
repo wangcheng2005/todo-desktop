@@ -2,28 +2,28 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\work\todo\todo-desktop\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>D:\workspace\ai\todo-desktop\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\work\todo\todo-desktop\build\windows\x64\flutter\x64\Debug\flutter_assemble</FullPath>
+      <FullPath>D:\workspace\ai\todo-desktop\build\windows\x64\flutter\x64\Debug\flutter_assemble</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\work\todo\todo-desktop\build\windows\x64\plugins\desktop_multi_window\Debug\desktop_multi_window_plugin.dll</FullPath>
+      <FullPath>D:\workspace\ai\todo-desktop\build\windows\x64\plugins\screen_retriever_windows\Debug\screen_retriever_windows_plugin.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\work\todo\todo-desktop\build\windows\x64\plugins\screen_retriever_windows\Debug\screen_retriever_windows_plugin.dll</FullPath>
+      <FullPath>D:\workspace\ai\todo-desktop\build\windows\x64\plugins\system_tray\Debug\system_tray_plugin.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\work\todo\todo-desktop\build\windows\x64\plugins\system_tray\Debug\system_tray_plugin.dll</FullPath>
+      <FullPath>D:\workspace\ai\todo-desktop\build\windows\x64\plugins\win_toast\Debug\win_toast_plugin.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\work\todo\todo-desktop\build\windows\x64\plugins\window_manager\Debug\window_manager_plugin.dll</FullPath>
+      <FullPath>D:\workspace\ai\todo-desktop\build\windows\x64\plugins\window_manager\Debug\window_manager_plugin.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\work\todo\todo-desktop\build\windows\x64\runner\Debug\todo_desktop.exe</FullPath>
+      <FullPath>D:\workspace\ai\todo-desktop\build\windows\x64\runner\Debug\todo_desktop.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\work\todo\todo-desktop\build\windows\x64\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>D:\workspace\ai\todo-desktop\build\windows\x64\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
