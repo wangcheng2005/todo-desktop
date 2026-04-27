@@ -20,6 +20,9 @@ final schedulerServiceProvider = Provider<SchedulerService>((ref) {
 /// Current sort mode
 final sortModeProvider = StateProvider<SortMode>((ref) => SortMode.byTime);
 
+/// Data retention days — completed/deleted items older than this are hidden
+final dataRetentionDaysProvider = StateProvider<int>((ref) => 30);
+
 final todoListProvider =
     StateNotifierProvider<TodoListNotifier, List<Todo>>((ref) {
   final storage = ref.watch(storageServiceProvider);
@@ -45,15 +48,38 @@ List<Todo> _applySort(List<Todo> list, SortMode sortMode) {
   return list;
 }
 
-/// Tab 1: 待办事项 — not started yet, not completed, not deleted
-final pendingTodosProvider = Provider<List<Todo>>((ref) {
+/// Tab 1: 未开始 — start time is in the future, not manually started, not completed, not deleted
+final notStartedTodosProvider = Provider<List<Todo>>((ref) {
   final todos = ref.watch(todoListProvider);
   final sort = ref.watch(sortModeProvider);
-  final list = todos.where((t) => !t.isCompleted && !t.isDeleted && !t.isStarted).toList();
+  final now = DateTime.now();
+  final list = todos
+      .where((t) =>
+          !t.isCompleted &&
+          !t.isDeleted &&
+          !t.isStarted &&
+          t.startTime != null &&
+          t.startTime!.isAfter(now))
+      .toList();
   return _applySort(list, sort);
 });
 
-/// Tab 2: 正在处理 — started but not completed, not deleted
+/// Tab 2: 待办事项 — no start time or start time reached, not manually started, not completed, not deleted
+final pendingTodosProvider = Provider<List<Todo>>((ref) {
+  final todos = ref.watch(todoListProvider);
+  final sort = ref.watch(sortModeProvider);
+  final now = DateTime.now();
+  final list = todos
+      .where((t) =>
+          !t.isCompleted &&
+          !t.isDeleted &&
+          !t.isStarted &&
+          (t.startTime == null || !t.startTime!.isAfter(now)))
+      .toList();
+  return _applySort(list, sort);
+});
+
+/// Tab 3: 正在处理 — manually started, not completed, not deleted
 final inProgressTodosProvider = Provider<List<Todo>>((ref) {
   final todos = ref.watch(todoListProvider);
   final sort = ref.watch(sortModeProvider);
@@ -61,19 +87,33 @@ final inProgressTodosProvider = Provider<List<Todo>>((ref) {
   return _applySort(list, sort);
 });
 
-/// Tab 3: 已完成 — completed, not deleted
+/// Tab 4: 已完成 — completed, not deleted, within retention window
 final completedTodosProvider = Provider<List<Todo>>((ref) {
   final todos = ref.watch(todoListProvider);
   final sort = ref.watch(sortModeProvider);
-  final list = todos.where((t) => t.isCompleted && !t.isDeleted).toList();
+  final retentionDays = ref.watch(dataRetentionDaysProvider);
+  final cutoff = DateTime.now().subtract(Duration(days: retentionDays));
+  final list = todos
+      .where((t) =>
+          t.isCompleted &&
+          !t.isDeleted &&
+          (t.completedAt == null || t.completedAt!.isAfter(cutoff)))
+      .toList();
   return _applySort(list, sort);
 });
 
-/// Tab 4: 已删除 — soft-deleted
+/// Tab 5: 已删除 — soft-deleted, within retention window
 final deletedTodosProvider = Provider<List<Todo>>((ref) {
   final todos = ref.watch(todoListProvider);
   final sort = ref.watch(sortModeProvider);
-  final list = todos.where((t) => t.isDeleted).toList();
+  final retentionDays = ref.watch(dataRetentionDaysProvider);
+  final cutoff = DateTime.now().subtract(Duration(days: retentionDays));
+  // Use completedAt if available (deleted after completion), otherwise createdAt
+  final list = todos
+      .where((t) =>
+          t.isDeleted &&
+          (t.completedAt ?? t.createdAt).isAfter(cutoff))
+      .toList();
   return _applySort(list, sort);
 });
 
@@ -115,13 +155,14 @@ class TodoListNotifier extends StateNotifier<List<Todo>> {
     state = [...state, todo];
   }
 
-  Future<void> toggleComplete(String id) async {
+  Future<void> toggleComplete(String id, {String completionNote = ''}) async {
     final todo = _storage.getTodo(id);
     if (todo == null) return;
     final nowCompleted = !todo.isCompleted;
     final updated = todo.copyWith(
       isCompleted: nowCompleted,
       completedAt: nowCompleted ? DateTime.now() : null,
+      completionNote: nowCompleted ? completionNote : '',
     );
     await _storage.updateTodo(updated);
     state = [

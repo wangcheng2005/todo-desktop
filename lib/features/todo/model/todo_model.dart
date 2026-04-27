@@ -64,6 +64,9 @@ class Todo extends HiveObject {
   @HiveField(11)
   bool isStarted;
 
+  @HiveField(12)
+  String completionNote;
+
   Todo({
     required this.id,
     required this.title,
@@ -77,6 +80,7 @@ class Todo extends HiveObject {
     this.completedAt,
     this.isDeleted = false,
     this.isStarted = false,
+    this.completionNote = '',
   }) : createdAt = createdAt ?? DateTime.now();
 
   Todo copyWith({
@@ -90,6 +94,7 @@ class Todo extends HiveObject {
     DateTime? completedAt,
     bool? isDeleted,
     bool? isStarted,
+    String? completionNote,
   }) {
     return Todo(
       id: id,
@@ -104,6 +109,7 @@ class Todo extends HiveObject {
       completedAt: completedAt ?? this.completedAt,
       isDeleted: isDeleted ?? this.isDeleted,
       isStarted: isStarted ?? this.isStarted,
+      completionNote: completionNote ?? this.completionNote,
     );
   }
 

@@ -88,11 +88,22 @@ class _AppWithServicesState extends ConsumerState<_AppWithServices>
     await _trayService.init();
 
     // Start scheduler with current incomplete todos
+    final now = DateTime.now();
     final initialTodos = ref
         .read(todoListProvider)
-        .where((t) => !t.isCompleted && !t.isDeleted)
+        .where((t) =>
+            !t.isCompleted &&
+            !t.isDeleted &&
+            (t.isStarted ||
+                t.startTime == null ||
+                !t.startTime!.isAfter(now)))
         .toList();
     final interval = widget.storage.getNotificationInterval();
+
+    // Initialize data retention days from storage
+    ref.read(dataRetentionDaysProvider.notifier).state =
+        widget.storage.getDataRetentionDays();
+
     await _schedulerService.start(
       initialTodos: initialTodos,
       intervalMinutes: interval,
@@ -100,8 +111,16 @@ class _AppWithServicesState extends ConsumerState<_AppWithServices>
 
     // Watch todo list for changes and show notifications
     ref.listen(todoListProvider, (prev, next) {
-      final incompleteTodos =
-          next.where((t) => !t.isCompleted && !t.isDeleted).toList();
+      final now = DateTime.now();
+      // Only notify about in-progress and pending (already reached start time) todos
+      final incompleteTodos = next
+          .where((t) =>
+              !t.isCompleted &&
+              !t.isDeleted &&
+              (t.isStarted ||
+                  t.startTime == null ||
+                  !t.startTime!.isAfter(now)))
+          .toList();
 
       // Always keep scheduler in sync
       _schedulerService.updateTodos(incompleteTodos);

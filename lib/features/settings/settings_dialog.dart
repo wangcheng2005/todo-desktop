@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/scheduler/scheduler_service.dart';
 import '../../core/services/startup_service.dart';
 import '../../core/storage/storage_service.dart';
+import '../../features/todo/provider/todo_provider.dart';
 import '../../shared/theme.dart';
 
-/// Settings dialog — currently contains only the auto-startup toggle.
-class SettingsDialog extends StatefulWidget {
+/// Settings dialog
+class SettingsDialog extends ConsumerStatefulWidget {
   final StorageService storage;
   final SchedulerService scheduler;
 
@@ -16,15 +18,17 @@ class SettingsDialog extends StatefulWidget {
   });
 
   @override
-  State<SettingsDialog> createState() => _SettingsDialogState();
+  ConsumerState<SettingsDialog> createState() => _SettingsDialogState();
 }
 
-class _SettingsDialogState extends State<SettingsDialog> {
+class _SettingsDialogState extends ConsumerState<SettingsDialog> {
   bool _autoStartup = false;
   bool _loading = true;
   int _notificationInterval = 10;
+  int _dataRetentionDays = 30;
 
   static const _intervalOptions = [5, 10, 30, 60];
+  static const _retentionOptions = [30, 90, 180];
 
   @override
   void initState() {
@@ -35,10 +39,12 @@ class _SettingsDialogState extends State<SettingsDialog> {
   Future<void> _loadSettings() async {
     final enabled = await StartupService.isEnabled();
     final interval = widget.storage.getNotificationInterval();
+    final retention = widget.storage.getDataRetentionDays();
     if (mounted) {
       setState(() {
         _autoStartup = enabled;
         _notificationInterval = interval;
+        _dataRetentionDays = retention;
         _loading = false;
       });
     }
@@ -48,6 +54,12 @@ class _SettingsDialogState extends State<SettingsDialog> {
     setState(() => _notificationInterval = minutes);
     await widget.storage.setNotificationInterval(minutes);
     widget.scheduler.setInterval(minutes);
+  }
+
+  Future<void> _setDataRetentionDays(int days) async {
+    setState(() => _dataRetentionDays = days);
+    await widget.storage.setDataRetentionDays(days);
+    ref.read(dataRetentionDaysProvider.notifier).state = days;
   }
 
   Future<void> _toggleAutoStartup(bool value) async {
@@ -182,6 +194,46 @@ class _SettingsDialogState extends State<SettingsDialog> {
                                   .toList(),
                               onChanged: (v) {
                                 if (v != null) _setNotificationInterval(v);
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    _buildSection(
+                      title: '数据',
+                      children: [
+                        _SettingsTile(
+                          icon: Icons.cleaning_services_rounded,
+                          iconColor: AppTheme.danger,
+                          title: '数据保留时长',
+                          subtitle: '超过此时长的已完成和已删除数据不再展示',
+                          trailing: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: AppTheme.danger.withOpacity(0.08),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                  color: AppTheme.danger.withOpacity(0.2)),
+                            ),
+                            child: DropdownButton<int>(
+                              value: _dataRetentionDays,
+                              isDense: true,
+                              underline: const SizedBox.shrink(),
+                              style: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                                color: AppTheme.danger,
+                              ),
+                              items: _retentionOptions
+                                  .map((d) => DropdownMenuItem(
+                                        value: d,
+                                        child: Text('$d 天'),
+                                      ))
+                                  .toList(),
+                              onChanged: (v) {
+                                if (v != null) _setDataRetentionDays(v);
                               },
                             ),
                           ),

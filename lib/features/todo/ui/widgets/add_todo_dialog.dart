@@ -30,7 +30,8 @@ class _AddTodoDialogState extends ConsumerState<AddTodoDialog> {
     final todo = widget.editTodo;
     _titleCtrl = TextEditingController(text: todo?.title ?? '');
     _remarkCtrl = TextEditingController(text: todo?.remark ?? '');
-    _startTime = todo?.startTime;
+    final now = DateTime.now();
+    _startTime = todo?.startTime ?? DateTime(now.year, now.month, now.day);
     _endTime = todo?.endTime;
     _priority = todo?.priority ?? Priority.medium;
     _category = todo?.category ?? TodoCategory.work;

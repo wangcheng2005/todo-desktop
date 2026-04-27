@@ -6,6 +6,7 @@ import '../widgets/todo_list_tile.dart';
 import '../widgets/add_todo_dialog.dart';
 import '../../../../shared/theme.dart';
 import '../../../settings/settings_dialog.dart';
+import '../../../statistics/statistics_page.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -21,7 +22,8 @@ class _HomePageState extends ConsumerState<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    // Default to "待办" tab (index 1, after "未开始")
+    _tabController = TabController(length: 5, initialIndex: 1, vsync: this);
   }
 
   @override
@@ -33,6 +35,7 @@ class _HomePageState extends ConsumerState<HomePage>
   @override
   Widget build(BuildContext context) {
     final incomplete = ref.watch(incompleteTodosProvider);
+    final notStarted = ref.watch(notStartedTodosProvider);
     final pending = ref.watch(pendingTodosProvider);
     final inProgress = ref.watch(inProgressTodosProvider);
     final completed = ref.watch(completedTodosProvider);
@@ -57,6 +60,7 @@ class _HomePageState extends ConsumerState<HomePage>
           _buildTopBar(),
           _buildStatsRow(
             total: activeCount,
+            notStarted: notStarted.length,
             pending: pending.length,
             inProgress: inProgress.length,
             overdue: overdueCount,
@@ -68,7 +72,10 @@ class _HomePageState extends ConsumerState<HomePage>
             color: Colors.white,
             child: TabBar(
               controller: _tabController,
+              isScrollable: true,
+              tabAlignment: TabAlignment.start,
               tabs: [
+                _buildTab(Icons.hourglass_empty_rounded, '未开始', notStarted.length),
                 _buildTab(Icons.inbox_rounded, '待办', pending.length),
                 _buildTab(Icons.play_circle_outline_rounded, '进行中', inProgress.length),
                 _buildTab(Icons.task_alt_rounded, '已完成', completed.length),
@@ -81,6 +88,7 @@ class _HomePageState extends ConsumerState<HomePage>
             child: TabBarView(
               controller: _tabController,
               children: [
+                _buildTodoList(notStarted, emptyIcon: Icons.hourglass_empty_rounded, emptyText: '暂无未开始事项', emptyHint: '开始时间未到的待办会出现在这里'),
                 _buildTodoList(pending, emptyIcon: Icons.inbox_rounded, emptyText: '暂无待办事项', emptyHint: '点击右下角按钮创建新待办'),
                 _buildTodoList(inProgress, emptyIcon: Icons.timer_outlined, emptyText: '暂无进行中事项', emptyHint: '在待办列表中点击开始处理按钮'),
                 _buildCompletedList(completed),
@@ -145,6 +153,12 @@ class _HomePageState extends ConsumerState<HomePage>
             icon: Icons.add_rounded,
             label: '新建',
             onTap: () => _showAddTodoDialog(context),
+          ),
+          const SizedBox(width: 8),
+          _buildTopBarIconAction(
+            icon: Icons.bar_chart_rounded,
+            tooltip: '统计',
+            onTap: () => _showStatistics(context),
           ),
           const SizedBox(width: 8),
           _buildTopBarIconAction(
@@ -214,6 +228,7 @@ class _HomePageState extends ConsumerState<HomePage>
 
   Widget _buildStatsRow({
     required int total,
+    required int notStarted,
     required int pending,
     required int inProgress,
     required int overdue,
@@ -228,6 +243,7 @@ class _HomePageState extends ConsumerState<HomePage>
         children: [
           _buildStatChip('全部', total, AppTheme.textSecondary),
           const SizedBox(width: 8),
+          if (notStarted > 0) ...[_buildStatChip('未开始', notStarted, AppTheme.textTertiary), const SizedBox(width: 8)],
           _buildStatChip('待办', pending, AppTheme.primary),
           const SizedBox(width: 8),
           _buildStatChip('进行中', inProgress, AppTheme.warning),
@@ -359,8 +375,7 @@ class _HomePageState extends ConsumerState<HomePage>
           padding: const EdgeInsets.only(bottom: 8),
           child: TodoListTile(
             todo: todo,
-            onToggle: () =>
-                ref.read(todoListProvider.notifier).toggleComplete(todo.id),
+            onToggle: () => _handleComplete(context, todo),
             onDelete: () =>
                 ref.read(todoListProvider.notifier).softDeleteTodo(todo.id),
             onEdit: () => _showEditDialog(context, todo),
@@ -385,8 +400,7 @@ class _HomePageState extends ConsumerState<HomePage>
           padding: const EdgeInsets.only(bottom: 8),
           child: TodoListTile(
             todo: todo,
-            onToggle: () =>
-                ref.read(todoListProvider.notifier).toggleComplete(todo.id),
+            onToggle: () => _handleComplete(context, todo),
             onDelete: () =>
                 ref.read(todoListProvider.notifier).softDeleteTodo(todo.id),
             onEdit: () => _showEditDialog(context, todo),
@@ -538,6 +552,111 @@ class _HomePageState extends ConsumerState<HomePage>
     );
   }
 
+  /// If the todo is incomplete, show a dialog to enter completion note, then complete.
+  /// If already completed, just toggle back (undo) with no dialog.
+  void _handleComplete(BuildContext context, Todo todo) {
+    if (todo.isCompleted) {
+      ref.read(todoListProvider.notifier).toggleComplete(todo.id);
+      return;
+    }
+    final noteController = TextEditingController();
+    showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppTheme.radiusLg),
+        ),
+        title: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(6),
+              decoration: BoxDecoration(
+                color: AppTheme.success.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Icon(Icons.task_alt_rounded,
+                  color: AppTheme.success, size: 18),
+            ),
+            const SizedBox(width: 10),
+            const Text('完成任务', style: TextStyle(fontSize: 16)),
+          ],
+        ),
+        content: SizedBox(
+          width: 340,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '「${todo.title}」',
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: AppTheme.textSecondary,
+                ),
+              ),
+              const SizedBox(height: 14),
+              const Text(
+                '结项备注（选填）',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: AppTheme.textTertiary,
+                ),
+              ),
+              const SizedBox(height: 6),
+              TextField(
+                controller: noteController,
+                autofocus: true,
+                maxLines: 3,
+                decoration: InputDecoration(
+                  hintText: '记录一下是怎么完成的，或者有哪些收获…',
+                  hintStyle: const TextStyle(
+                    fontSize: 13,
+                    color: AppTheme.textTertiary,
+                  ),
+                  contentPadding: const EdgeInsets.all(12),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(AppTheme.radiusMd),
+                    borderSide: const BorderSide(color: AppTheme.border),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(AppTheme.radiusMd),
+                    borderSide: const BorderSide(color: AppTheme.border),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(AppTheme.radiusMd),
+                    borderSide:
+                        const BorderSide(color: AppTheme.primary, width: 1.5),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('取消'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: FilledButton.styleFrom(backgroundColor: AppTheme.success),
+            child: const Text('完成'),
+          ),
+        ],
+      ),
+    ).then((confirmed) {
+      if (confirmed == true) {
+        ref.read(todoListProvider.notifier).toggleComplete(
+              todo.id,
+              completionNote: noteController.text.trim(),
+            );
+      }
+      noteController.dispose();
+    });
+  }
+
   void _showSettings(BuildContext context) {
     final storage = ref.read(storageServiceProvider);
     final scheduler = ref.read(schedulerServiceProvider);
@@ -547,6 +666,12 @@ class _HomePageState extends ConsumerState<HomePage>
         storage: storage,
         scheduler: scheduler,
       ),
+    );
+  }
+
+  void _showStatistics(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => const StatisticsPage()),
     );
   }
 

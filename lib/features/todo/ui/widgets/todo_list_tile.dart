@@ -203,6 +203,25 @@ class _TodoListTileState extends State<TodoListTile> {
                             ],
                           ),
                         ],
+                        // Completed at
+                        if (todo.isCompleted && todo.completedAt != null) ...[
+                          const SizedBox(height: 6),
+                          Row(
+                            children: [
+                              const Icon(Icons.task_alt_rounded,
+                                  size: 13, color: AppTheme.success),
+                              const SizedBox(width: 4),
+                              Text(
+                                '完成于 ${DateFormat('yyyy/MM/dd HH:mm').format(todo.completedAt!)}',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: AppTheme.success,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                         // Remark
                         if (todo.remark.isNotEmpty) ...[
                           const SizedBox(height: 4),
@@ -219,6 +238,29 @@ class _TodoListTileState extends State<TodoListTile> {
                                   style: const TextStyle(
                                     fontSize: 12,
                                     color: AppTheme.textTertiary,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                        // Completion note
+                        if (todo.isCompleted && todo.completionNote.isNotEmpty) ...[
+                          const SizedBox(height: 4),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Icon(Icons.comment_rounded,
+                                  size: 13, color: AppTheme.success),
+                              const SizedBox(width: 4),
+                              Expanded(
+                                child: Text(
+                                  todo.completionNote,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: AppTheme.success.withOpacity(0.8),
                                   ),
                                 ),
                               ),

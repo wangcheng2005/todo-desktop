@@ -81,4 +81,15 @@ class StorageService {
   Future<void> setNotificationInterval(int minutes) async {
     await _settingsBox.put('notificationInterval', minutes);
   }
+
+  /// Data retention days — completed/deleted items older than this are hidden
+  /// (default 30, options: 30 / 90 / 180)
+  int getDataRetentionDays() {
+    final val = _settingsBox.get('dataRetentionDays');
+    return val is int ? val : 30;
+  }
+
+  Future<void> setDataRetentionDays(int days) async {
+    await _settingsBox.put('dataRetentionDays', days);
+  }
 }
